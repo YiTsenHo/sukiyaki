@@ -1,0 +1,90 @@
+/* styles.css */
+
+/* 整體樣式 */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(to bottom, #8aa7c5, #7e91ad);
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* 頁首樣式 */
+header {
+    background-color: #007BFF;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* 主標題 */
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+/* 主要內容區 */
+main {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* 區塊樣式 */
+section {
+    margin-bottom: 2rem;
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 按鈕樣式 */
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* 信息框樣式 */
+.info-box {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f0f8ff;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+    display: none; /* 預設隱藏 */
+}
+
+/* 圖片樣式 */
+.main-image {
+    display: block;
+    width: 100%;
+    max-width: 100px;
+    height:auto;
+    margin: 1rem auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 頁尾樣式 */
+footer {
+    text-align: center;
+    background: #333;
+    color: white;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+ 
