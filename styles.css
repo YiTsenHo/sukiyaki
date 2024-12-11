@@ -1,90 +1,75 @@
-/* styles.css */
-
-/* 整體樣式 */
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background: linear-gradient(to bottom, #8aa7c5, #7e91ad);
+* {
     margin: 0;
     padding: 0;
-    color: #333;
+    box-sizing: border-box;
 }
 
-/* 頁首樣式 */
-header {
-    background-color: #007BFF;
-    color: white;
-    padding: 1rem 0;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+body {
+    font-family: 'Noto Sans TC', sans-serif;    
+    height: 100vh;
+    background-color: #230e03;
+    color: #fafafa;
 }
 
-/* 主標題 */
-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
+.container {
+    display: flex;
+    height: 100%;
 }
 
-/* 主要內容區 */
-main {
-    padding: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
+.left-panel {
+    width: 20%;
+    background-color: #110c09;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* border-right: 1px solid #211e1e; */
 }
 
-/* 區塊樣式 */
-section {
-    margin-bottom: 2rem;
-    background: white;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* 按鈕樣式 */
-button {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    margin-right: 1rem;
-    border-radius: 5px;
+.left-panel button {
+    width: 80%;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    color: #fafafa;
     cursor: pointer;
-    font-size: 1rem;
-    transition: background 0.3s ease;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-/* 信息框樣式 */
-.info-box {
-    margin-top: 1rem;
-    padding: 1rem;
-    background: #f0f8ff;
-    border: 1px solid #007BFF;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    display: none; /* 預設隱藏 */
+    background-color: #41332c;
+    transition: background-color 0.3s;
 }
 
-/* 圖片樣式 */
-.main-image {
+.left-panel button:hover {
+    background-color: #e0e0e0;
+}
+
+.right-panel {
+    width: 80%;
+    background-image: url('/vecteezy_premium-dark-brown-product-display-background_3219856'); /* 替換成你的圖片路徑 */
+    background-size: cover; /* 確保圖片覆蓋整個右側 */
+    background-position: center;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.content {
+    display: none;
+}
+
+.content.active {
     display: block;
-    width: 100%;
-    max-width: 100px;
-    height:auto;
-    margin: 1rem auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* 頁尾樣式 */
-footer {
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
     text-align: center;
-    background: #333;
-    color: white;
-    padding: 1rem 0;
-    margin-top: 2rem;
 }
- 
+
+.main-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin-top: 20px;
+}
