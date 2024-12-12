@@ -13,18 +13,7 @@ body, html {
     height: 100%;
 }
 
-.lef-panel-title {
-    position: absolute;
-    top: 20px;
-    left: 30px;
-    margin: 0;
-    color: rgb(255, 255, 255);
-    font-family: 'Noto Serif TC', Arial, sans-serif;
-    z-index: 10;
-    letter-spacing: 4px;
-}
-
-/* Left Panel */
+/* 左側面板 */
 .left-panel {
     width: 20%;
     background-color: rgba(0, 0, 0, 0.5);
@@ -33,58 +22,53 @@ body, html {
     align-items: center;
     justify-content: center;
     box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
-    position: relative;
     z-index: 2;
-    padding: 30px; /* 增加內距 */
-    font-family: 'Noto Serif TC', Arial, sans-serif;
-    color:antiquewhite;
+    padding: 30px;
+    color: antiquewhite;
     letter-spacing: 8px;
 }
 
-
-
 .left-panel button {
-    width: 200px; /* 固定寬度 */
+    width: 200px;
     height: 100px;
     background-color: #ffffff;
     border: none;
     color: #333;
-    padding: 15px 20px; /* 增加垂直內距，讓按鈕更大 */
-    margin: 50px 0; /* 增加按鈕之間的間距 */
-    font-size: 30px; /* 稍微增大字體 */
-    font-family: 'Noto Serif TC', Arial, sans-serif;
+    padding: 15px 20px;
+    margin: 50px 0;
+    font-size: 30px;
     font-weight: 500;
     cursor: pointer;
-    border-radius: 30px; /* 可以增加圓角 */
+    border-radius: 30px;
     transition: transform 0.3s, background-color 0.3s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 增加陰影效果 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .left-panel button:hover {
     background-color: #fbd7b0;
     transform: scale(1.05);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* 懸停時陰影更明顯 */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Right Panel */
+/* 右側面板 */
 .right-panel {
     width: 80%;
     padding: 20px;
-    padding-left: 50px;
     color: #fff;
-    overflow-y: auto;
     position: relative;
-    z-index: 1;
+    overflow-y: auto;
     line-height: 1.5;
 }
 
-/* 右側面板內的圖片樣式 */
-.right-panel-image {
-    max-width: 100%; /* 圖片寬度不超過面板的 80% */
-    height: auto; /* 保持圖片比例 */
-    margin-top: 20px; /* 與上方內容的間距 */
-    display: block; /* 確保圖片為區塊元素，避免文字環繞 */
-    margin-left: auto; /* 水平置中 */
-    margin-right: auto;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* 添加陰影效果 */
+/* 主頁圖片樣式 */
+.homepage-image {
+    display: block; /* 確保圖片為區塊元素 */
+    margin: 0 auto; /* 水平置中 */
+    position: absolute; /* 絕對定位 */
+    bottom: -100px; /* 靠近底部，調整間距 */
+    left: 50%; /* 水平定位 */
+    transform: translateX(-50%); /* 將中心點對齊 */
+    max-width: 100%; /* 設置最大寬度避免圖片過大 */
+    max-height: auto; /* 限制圖片高度 */
+    opacity: 0.9;
 }

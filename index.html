@@ -6,7 +6,6 @@
     <title>壽喜燒介紹</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    
 </head>
 <body>
     <div class="container">
@@ -17,40 +16,13 @@
             <button onclick="showReviews()">醬汁評比</button>
         </div>
         <div class="right-panel" id="content">
+            <!-- 初始的 Home 內容 -->
             <h1>歡迎來到壽喜燒的世界</h1>
             <p>點擊左側選單以瀏覽更多內容。</p>
-            <img src="./images/sukiyaki.png" alt = "sukiyaki" class="right-panel-image">
+            <img src="images/sukiyaki.png" alt="壽喜燒圖片" class="homepage-image">
         </div>
     </div>
 
-    <script>
-        function showIntro() {
-            document.getElementById('content').innerHTML = `
-                <h1>介紹</h1>
-                <p>壽喜燒是一道日本傳統火鍋料理，具有悠久的歷史和獨特的味道。</p>
-            `;
-        }
-
-        function showHistory() {
-            document.getElementById('content').innerHTML = `
-                <h1>歷史</h1>
-                <p>壽喜燒起源於日本江戶時代，最早的形式是一種簡單的烹調方式。</p>
-            `;
-        }
-
-        function showReviews() {
-            document.getElementById('content').innerHTML = `
-                <h1>醬汁評比</h1>
-                <p>各種壽喜燒醬汁的評比結果如下：甜鹹口味最受歡迎。</p>
-            `;
-        }
-
-        function goToHome() {
-            document.getElementById('content').innerHTML = `
-            <h1>歡迎來到壽喜燒的世界</h1>
-            <p>點擊左側選單以瀏覽更多內容。</p>
-            `;
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
