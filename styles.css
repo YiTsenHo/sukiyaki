@@ -88,3 +88,23 @@ body, html {
     margin-right: auto;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* 添加陰影效果 */
 }
+.text-block {
+    background-color: rgba(255, 248, 220, 0.8); /* 奶油色半透明背景 */
+    color: #483b2f; /* 深褐色字體 */
+    padding: 15px; /* 內距 */
+    margin: 20px 0; /* 上下間距 */
+    border-radius: 10px; /* 圓角 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 陰影效果 */
+    line-height: 1.6; /* 行距 */
+}
+.text-block ul {
+    padding-left: 20px; /* 整體縮排 */
+    margin: 10px 0; /* 與周圍文字的距離 */
+}
+
+/* 清單項目樣式 */
+.text-block ul li {
+    list-style-type: disc; /* 點的樣式 */
+    margin: 5px 0; /* 每個項目間的距離 */
+    padding-left: 5px; /* 點與文字的距離 */
+}
