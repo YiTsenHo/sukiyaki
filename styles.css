@@ -1,14 +1,11 @@
-* {
+/* 全局樣式 */
+body, html {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Noto Sans TC', sans-serif;    
-    height: 100vh;
-    background-color: #230e03;
-    color: #fafafa;
+    height: 100%;
+    font-family: 'Noto Serif TC', Arial, sans-serif;
+    background: url('/images/brown_background.jpg') no-repeat center center fixed; 
+    background-size: cover; 
 }
 
 .container {
@@ -16,60 +13,51 @@ body {
     height: 100%;
 }
 
+/* Left Panel */
 .left-panel {
     width: 20%;
-    background-color: #110c09;
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* border-right: 1px solid #211e1e; */
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 2;
+    padding: 20px; /* 增加內距 */
 }
 
+
 .left-panel button {
-    width: 80%;
-    margin: 10px 0;
-    padding: 10px;
-    font-size: 16px;
-    color: #fafafa;
+    width: 200px; /* 固定寬度 */
+    height: 100px;
+    background-color: #ffffff;
+    border: none;
+    color: #333;
+    padding: 15px 20px; /* 增加垂直內距，讓按鈕更大 */
+    margin: 50px 0; /* 增加按鈕之間的間距 */
+    font-size: 30px; /* 稍微增大字體 */
+    font-family: 'Noto Serif TC', Arial, sans-serif;
+    font-weight: 500;
     cursor: pointer;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #41332c;
-    transition: background-color 0.3s;
+    border-radius: 10px; /* 可以增加圓角 */
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 增加陰影效果 */
 }
 
 .left-panel button:hover {
-    background-color: #e0e0e0;
+    background-color: #f4b400;
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* 懸停時陰影更明顯 */
 }
 
+/* Right Panel */
 .right-panel {
     width: 80%;
-    background-image: url('/vecteezy_premium-dark-brown-product-display-background_3219856'); /* 替換成你的圖片路徑 */
-    background-size: cover; /* 確保圖片覆蓋整個右側 */
-    background-position: center;
     padding: 20px;
-    overflow-y: auto;
-}
-
-.content {
-    display: none;
-}
-
-.content.active {
-    display: block;
-}
-
-header {
-    background-color: #333;
+    padding-left: 50px;
     color: #fff;
-    padding: 10px 20px;
-    text-align: center;
-}
-
-.main-image {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    margin-top: 20px;
+    overflow-y: auto;
+    position: relative;
+    z-index: 1;
 }

@@ -4,37 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>壽喜燒介紹</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
-
+    
 </head>
 <body>
     <div class="container">
-        <!-- 左側按鈕區 -->
         <div class="left-panel">
-            <button onclick="showContent('intro')">介紹</button>
-            <button onclick="showContent('history')">歷史</button>
-            <button onclick="showContent('sauce-review')">醬汁評比</button>
+            <button onclick="showIntro()">介紹</button>
+            <button onclick="showHistory()">歷史</button>
+            <button onclick="showReviews()">醬汁評比</button>
         </div>
-        
-        <!-- 右側內容區 -->
-        <div class="right-panel">
-            <div id="intro" class="content active">
-                <h1>壽喜燒介紹</h1>
-                <p>壽喜燒是一道日本傳統火鍋料理，通常由薄切牛肉、蔬菜、豆腐等材料在甜鹹醬汁中煮製而成。</p>
-                <img src="images/sukiyaki.jpg" alt="壽喜燒圖片" class="main-image">
-            </div>
-            <div id="history" class="content">
-                <h2>壽喜燒歷史</h2>
-                <p>壽喜燒起源於江戶時代，是一種融合日式與西式風格的美食。</p>
-            </div>
-            <div id="sauce-review" class="content">
-                <h2>醬汁評比</h2>
-                <p>我們為您帶來最新的壽喜燒醬汁評比，助您挑選最適合的口味！</p>
-            </div>
+        <div class="right-panel" id="content">
+            <h1>歡迎來到壽喜燒的世界</h1>
+            <p>點擊左側選單以瀏覽更多內容。</p>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function showIntro() {
+            document.getElementById('content').innerHTML = `
+                <h1>介紹</h1>
+                <p>壽喜燒是一道日本傳統火鍋料理，具有悠久的歷史和獨特的味道。</p>
+            `;
+        }
+
+        function showHistory() {
+            document.getElementById('content').innerHTML = `
+                <h1>歷史</h1>
+                <p>壽喜燒起源於日本江戶時代，最早的形式是一種簡單的烹調方式。</p>
+            `;
+        }
+
+        function showReviews() {
+            document.getElementById('content').innerHTML = `
+                <h1>醬汁評比</h1>
+                <p>各種壽喜燒醬汁的評比結果如下：甜鹹口味最受歡迎。</p>
+            `;
+        }
+    </script>
 </body>
 </html>
