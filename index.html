@@ -11,6 +11,7 @@
 <body>
     <div class="container">
         <div class="left-panel">
+            <h2 id="homeLink" onclick="goToHome()" style="cursor: pointer;">SUKIYAKI</h2>
             <button onclick="showIntro()">介紹</button>
             <button onclick="showHistory()">歷史</button>
             <button onclick="showReviews()">醬汁評比</button>
@@ -40,6 +41,13 @@
             document.getElementById('content').innerHTML = `
                 <h1>醬汁評比</h1>
                 <p>各種壽喜燒醬汁的評比結果如下：甜鹹口味最受歡迎。</p>
+            `;
+        }
+
+        function goToHome() {
+            document.getElementById('content').innerHTML = `
+            <h1>歡迎來到壽喜燒的世界</h1>
+            <p>點擊左側選單以瀏覽更多內容。</p>
             `;
         }
     </script>

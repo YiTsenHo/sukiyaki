@@ -1,3 +1,10 @@
+function goToHome() {
+    document.getElementById('content').innerHTML = `
+    <h1>歡迎來到壽喜燒的世界</h1>
+    <p>點擊左側選單以瀏覽更多內容。</p>
+    `;
+}
+
 function showIntro() {
     document.getElementById('content').innerHTML = `
         <h1>介紹</h1>
@@ -18,3 +25,4 @@ function showReviews() {
         <p>各種壽喜燒醬汁的評比結果如下：甜鹹口味最受歡迎。</p>
     `;
 }
+

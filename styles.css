@@ -13,6 +13,17 @@ body, html {
     height: 100%;
 }
 
+.panel-title {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    margin: 0;
+    color: rgb(255, 255, 255);
+    font-family: 'Noto Serif TC', Arial, sans-serif;
+    z-index: 10;
+    letter-spacing: 4px;
+}
+
 /* Left Panel */
 .left-panel {
     width: 20%;
@@ -25,7 +36,10 @@ body, html {
     position: relative;
     z-index: 2;
     padding: 20px; /* 增加內距 */
+    font-family: 'Noto Serif TC', Arial, sans-serif;
+    color:antiquewhite;
 }
+
 
 
 .left-panel button {
@@ -46,7 +60,7 @@ body, html {
 }
 
 .left-panel button:hover {
-    background-color: #f4b400;
+    background-color: #fbd7b0;
     transform: scale(1.05);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* 懸停時陰影更明顯 */
 }
@@ -60,4 +74,5 @@ body, html {
     overflow-y: auto;
     position: relative;
     z-index: 1;
+    line-height: 1.5;
 }
