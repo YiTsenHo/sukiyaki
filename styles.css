@@ -94,13 +94,10 @@ body, html {
 /* 主頁圖片樣式 */
 .homepage-image {
     display: block; /* 確保圖片為區塊元素 */
-    margin: 0 auto; /* 水平置中 */
-    position: absolute; /* 絕對定位 */
-    bottom: -100px; /* 靠近底部，調整間距 */
-    left: 50%; /* 水平定位 */
-    transform: translateX(-50%); /* 將中心點對齊 */
-    max-width: 100%; /* 設置最大寬度避免圖片過大 */
-    max-height: auto; /* 限制圖片高度 */
-    opacity: 0.9;
-
+    margin: 20px auto; /* 水平置中並加上上方和下方的間距 */
+    max-width: 80%; /* 限制圖片的最大寬度為容器的 80%，可根據需要調整 */
+    height: auto; /* 根據圖片的寬度自動調整高度，保持比例 */
+    opacity: 0.9; /* 添加透明度 */
+    object-fit: contain; /* 使圖片完整顯示，且保持比例，避免裁切 */
+    /* 移除 position: absolute 和 bottom 等屬性 */
 }
