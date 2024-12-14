@@ -165,10 +165,10 @@ h5 {
 /* 固定圖片在右側面板底部並置中 */
 .homepage-image {
     position: absolute;
-    bottom: 0;
+    bottom: -50px;
     left: 50%;
     transform: translateX(-50%);
-    max-width: 80%;
+    max-width: 100%;
     height: auto;
     opacity: 1;
     transition: transform 0.5s ease, opacity 0.5s ease; /* 漸變動畫 */
