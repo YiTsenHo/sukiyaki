@@ -8,6 +8,53 @@ body, html {
     background-size: cover; 
 }
 
+h4 {
+    font-size: 80px;
+    letter-spacing: 10px;
+    margin-bottom: 10px;
+    margin-left: -6px;
+}
+
+h1 {
+    font-size: 300%;
+    letter-spacing: 10px;
+    margin-top: 0px;
+}
+
+h3 {
+    position: relative;
+    display: inline-block; /* 重要：使宽度跟随内容 */
+    padding-bottom: 10px; /* 为线条腾出空间 */
+}
+
+h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* 使用 100% 跟随文字宽度 */
+    height: 0.5px; /* 线条粗细 */
+    background-color: #ffffffa0; /* 线条颜色 */
+}
+
+h5 {
+    font-size: 18px;
+    margin: 5px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    color: rgb(255, 166, 42);
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.highlight {
+    color: rgb(255, 166, 42);
+    font-weight: bold; /* 如果需要同時加粗 */
+}
+
+
 .container {
     display: flex;
     height: 100%;
@@ -30,34 +77,52 @@ body, html {
 
 .left-panel button {
     width: 200px;
-    height: 100px;
-    background-color: #ffffff;
+    height: 70px; /* 稍微減少高度 */
+    background-color: transparent; /* 透明背景 */
     border: none;
-    color: #333;
+    color: #fff; /* 白色文字 */
     padding: 15px 20px;
-    margin: 50px 0;
-    font-size: 30px;
+    margin: 50px 0; /* 調整間距 */
+    font-size: 24px;
     font-weight: 500;
     cursor: pointer;
-    border-radius: 30px;
-    transition: transform 0.3s, background-color 0.3s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative; /* 用於底部線條 */
+    transition: transform 0.3s, color 0.3s;
+}
+
+.left-panel button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0%;
+    width: 0;
+    height: 2px; /* 細線的高度 */
+    background-color: #fff4f4; /* 線條顏色 */
+    transform: scaleX(0); /* 初始不可見 */
+    transform-origin: center; /* 從中間縮放 */
+    transition: transform 0.3s ease;
 }
 
 .left-panel button:hover {
-    background-color: #fbd7b0;
-    transform: scale(1.05);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1); /* 放大效果 */
+    color: #fbd7b0; /* hover 時的顏色變化 */
+}
+
+.left-panel button:hover::after {
+    transform: scaleX(0.7); /* 保持置中並變窄 */
+    width: 100%; /* hover时宽度变为100% */
 }
 
 /* 右側面板 */
 .right-panel {
     width: 80%;
-    padding: 20px;
+    padding: 50px;
     color: #fff;
     position: relative;
     overflow-y: auto;
     line-height: 1.5;
+    letter-spacing: 1px;
+
 }
 
 /* 右側面板內的圖片樣式 */
@@ -71,13 +136,19 @@ body, html {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* 添加陰影效果 */
 }
 .text-block {
-    background-color: rgba(255, 248, 220, 0.8); /* 奶油色半透明背景 */
-    color: #483b2f; /* 深褐色字體 */
+    background-color: rgb(255, 254, 252); /* 奶油色半透明背景 */
+    color: #ffe8e8; /* 深褐色字體 */
     padding: 15px; /* 內距 */
+    padding-left: 25px;
     margin: 20px 0; /* 上下間距 */
     border-radius: 10px; /* 圓角 */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 陰影效果 */
     line-height: 1.6; /* 行距 */
+    background-color: rgba(255, 255, 255, 0.2); /* 半透明白色背景 */
+    backdrop-filter: blur(10px); /* 模糊效果 */
+    border: 1px solid rgba(255, 255, 255, 0.125); /* 可选：细边框 */
+    font-family: 'Noto Sans TC', Arial, sans-serif;;
+    word-spacing: 1px;
 }
 .text-block ul {
     padding-left: 20px; /* 整體縮排 */
@@ -91,13 +162,14 @@ body, html {
     padding-left: 5px; /* 點與文字的距離 */
 }
 
-/* 主頁圖片樣式 */
+/* 固定圖片在右側面板底部並置中 */
 .homepage-image {
-    display: block; /* 確保圖片為區塊元素 */
-    margin: 20px auto; /* 水平置中並加上上方和下方的間距 */
-    max-width: 80%; /* 限制圖片的最大寬度為容器的 80%，可根據需要調整 */
-    height: auto; /* 根據圖片的寬度自動調整高度，保持比例 */
-    opacity: 0.9; /* 添加透明度 */
-    object-fit: contain; /* 使圖片完整顯示，且保持比例，避免裁切 */
-    /* 移除 position: absolute 和 bottom 等屬性 */
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 80%;
+    height: auto;
+    opacity: 1;
+    transition: transform 0.5s ease, opacity 0.5s ease; /* 漸變動畫 */
 }
