@@ -2,10 +2,12 @@
 body, html {
     margin: 0;
     padding: 0;
-    height: 100%;
     font-family: 'Noto Serif TC', Arial, sans-serif;
     background: url('/images/brown_background.jpg') no-repeat center center fixed; 
     background-size: cover; 
+    height: 100%; /* 確保高度定義 */
+    overflow-y: auto; /* 垂直方向允許滾動 */
+    scroll-behavior: smooth; /* 滑動行為平滑 */
 }
 
 h4 {
@@ -82,7 +84,7 @@ h5 {
     border: none;
     color: #fff; /* 白色文字 */
     padding: 15px 20px;
-    margin: 50px 0; /* 調整間距 */
+    margin: 50px; /* 調整間距 */
     font-size: 24px;
     font-weight: 500;
     cursor: pointer;
@@ -119,9 +121,11 @@ h5 {
     padding: 50px;
     color: #fff;
     position: relative;
-    overflow-y: auto;
     line-height: 1.5;
     letter-spacing: 1px;
+    height: 100%; /* 或根據需求設置固定高度 */
+    overflow-y: auto; /* 容器內部滾動 */
+    scroll-behavior: smooth; /* 平滑滾動 */
 
 }
 
@@ -149,6 +153,10 @@ h5 {
     border: 1px solid rgba(255, 255, 255, 0.125); /* 可选：细边框 */
     font-family: 'Noto Sans TC', Arial, sans-serif;;
     word-spacing: 1px;
+    animation: fadeIn 0.8s ease-out;
+    animation-delay: 0.1s; /* 延迟触发 */
+    opacity: 0;
+    animation-fill-mode: forwards;
 }
 .text-block ul {
     padding-left: 20px; /* 整體縮排 */
@@ -166,10 +174,64 @@ h5 {
 .homepage-image {
     position: absolute;
     bottom: -50px;
-    left: 50%;
-    transform: translateX(-50%);
+    /*left: 50%;*/
+    /*transform: translateX(-50%);*/
     max-width: 100%;
     height: auto;
     opacity: 1;
-    transition: transform 0.5s ease, opacity 0.5s ease; /* 漸變動畫 */
+    animation: fadeIn 1s ease-out;
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0; /* 初始状态 */
+    animation-fill-mode: forwards; /* 保持最終狀態 */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px); /* 稍微增加初始位移 */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutToLeft {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
