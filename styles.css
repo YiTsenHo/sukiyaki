@@ -221,14 +221,14 @@ h5 {
 }
 
 .star {
-    color: #ffd700; /* 金色 */
+    color: rgb(255, 166, 42); /* 金色 */
     font-size: 24px;
     margin: 0 3px;
     transition: transform 0.2s;
 }
 
 .star.filled {
-    color: #ffd700; /* 實心星星的金色 */
+    color: rgb(255, 166, 42); /* 實心星星的金色 */
 }
 
 .star.empty {
