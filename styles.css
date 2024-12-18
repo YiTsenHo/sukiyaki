@@ -59,11 +59,17 @@ h5 {
 
 .container {
     display: flex;
-    height: 100%;
+    height: 100vh;
 }
 
+.container {
+    display: flex;
+    height: 100vh; /* 使用視窗高度 */
+    width: 100%;
+}
 /* 左側面板 */
 .left-panel {
+    flex: 0 0 auto; /* 不grow，不shrink，auto寬度 */
     width: 20%;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
@@ -75,15 +81,17 @@ h5 {
     padding: 30px;
     color: antiquewhite;
     letter-spacing: 8px;
+    min-height: 100vh;
 }
 
 .left-panel button {
-    width: 200px;
+    width: 70%;
     height: 70px; /* 稍微減少高度 */
     background-color: transparent; /* 透明背景 */
     border: none;
     color: #fff; /* 白色文字 */
-    padding: 15px 20px;
+    padding: 15px;
+    white-space: nowrap; /* 防止文字換行 */
     margin: 50px; /* 調整間距 */
     font-size: 24px;
     font-weight: 500;
@@ -245,6 +253,28 @@ h5 {
 
 .star.empty {
     color: #e0e0e0; /* 空心星星的灰色 */
+}
+
+.money-rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.money-symbol {
+    color: #e0e0e0;  /* 預設灰色 */
+    font-size: 1.2rem;
+    margin: 0 2px;
+    transition: color 0.3s;
+}
+
+.money-symbol.filled {
+    color: #FFD700;  /* 金黃色 */
+}
+
+.money-symbol.empty {
+    color: #e0e0e0;  /* 淺灰色 */
 }
 
 .fade-in {

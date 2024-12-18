@@ -110,7 +110,7 @@
                 <h1>歷史</h1>
                 <p>壽喜燒起源於日本江戶時代，最早的形式是一種簡單的烹調方式。</p>
                 <div class="text-block">
-                <p>壽喜燒是一道日本傳統火鍋料理，具有悠久的歷史和獨特的味道。</p>
+                <p>壽喜燒是一道日本傳統火鍋料理，具有悠久的歷史和獨特的味道</p>
                 <p>使用<span class="highlight">「鍬」</span>為容器，將肉煮熟後吃（魚、豆腐）</p>
                 <p>sukiyaki的名稱是在<span class="highlight">沒有鍋子的時代</span>大家使用「鍬」（suki）等農具的金屬部分，烤或煮食物來吃而來</p>
                 </div>
@@ -134,7 +134,7 @@
                 <p><span class="highlight">關東地區：</span>牛鍋 ぎゅうなべ
                 <ul>
                 <li>在19世紀中期，幕府的鎖國政在施行約200年後總算解除
-                <br>來到日本的外國人掀起吃牛肉的需求，牛肉廠商開始經營將牛肉煮成日本風味的餐廳「牛鍋屋」。
+                <br>來到日本的外國人掀起吃牛肉的需求，牛肉廠商開始經營將牛肉煮成日本風味的餐廳「牛鍋屋」
                 <br>當初的牛鍋為味噌口味，與現在的壽喜燒味道截然不同</li>
                 </ul>
                 </p>
@@ -149,38 +149,67 @@
         }
 
         function showFood() {
-    document.getElementById('content').innerHTML = `
-        <h1>食材</h1>
-        <div class="reviews">
-            <div class="column">
-                <img src="images/beaf1.jpg" alt="Beef Image 1" class="meat-image"><br>
-                <h3>霜降牛</h3>
-                <p class="sauce-description">選自肩胛處最細嫩部位，油花均勻，口感細緻。</p>
-                <p class="rating-text">4/5 - 口感豐富</p>
-            </div>
-            <div class="column">
-                <img src="images/beaf2.jpg" alt="Beef Image 2" class="meat-image"><br>
-                <h3>板腱牛</h3>
-                <p class="sauce-description">屬於肩胛骨上方的肉，每頭牛大約只有兩公斤的量，特色是中間有一根透明的嫩筋，脂肪少，肉結實。</p>
-                <p class="rating-text">4/5 - 充滿肉香</p>
-            </div>
-        
-            <div class="column">
-                <img src="images/A5.jpg" alt="A5 Image" class="meat-image"><br>
-                <h3>A5和牛</h3>
-                <p class="sauce-description">具豐富的霜降（油花），細緻的肉質和優越的風味。</p>
+            document.getElementById('content').innerHTML = `
+                <h1>食材</h1>
+                <div class="reviews">
+                    <div class="column">
+                        <img src="images/beef.png" alt="Beef Image 1" class="meat-image"><br>
+                        <h3>霜降牛</h3>
+                        <p class="sauce-description">選自肩胛處最細嫩部位，油花均勻，口感細緻。</p>
+                        <div class="money-rating" id="money1">
+                                    <span class="money-symbol">💰</span>
+                                    <span class="money-symbol">💰</span>
+                                    <span class="money-symbol">💰</span>
+                                    <span class="money-symbol">💰</span>
+                        </div>
+                        <p class="rating-text">4/5 - 口感豐富</p>
+                    </div>
+                    <div class="column">
+                        <img src="images/banjian.png" alt="Beef Image 2" class="meat-image"><br>
+                        <h3>板腱牛</h3>
+                        <p class="sauce-description">屬於肩胛骨上方的肉，每頭牛大約只有兩公斤的量，特色是中間有一根透明的嫩筋，脂肪少，肉結實。</p>
+                        <div class="money-rating" id="money1">
+                                    <span class="money-symbol">💰</span>
+                                    <span class="money-symbol">💰</span>
+                                    <span class="money-symbol">💰</span>
+                        </div>
+                        <p class="rating-text">3/5 - 充滿肉香</p>
+                    </div>
                 
-                <p class="rating-text">4/5 - 經典選擇</p>
-            </div>
-            <div class="column">
-                <img src="images/pork.jpg" alt="Pork Image" class="meat-image"><br>
-                <h3>黑豬梅花</h3>
-                <p class="sauce-description">梅花肉（豬肩胛部位）分布著細緻的油花，脂肪比例適中，煮過後肉質仍保持鮮嫩多汁。</p>
-                <p class="rating-text">5/5 - 頂級口感</p>
-            </div>
-        </div>
-    `;
-    }
+                    <div class="column">
+                        <img src="images/A5.png" alt="A5 Image" class="meat-image"><br>
+                        <h3>A5和牛</h3>
+                        <p class="sauce-description">具豐富的霜降（油花），細緻的肉質跟優越的風味。</p>
+                        <div class="money-rating" id="money1">
+                                    <span class="money-symbol">💰</span>
+                                    <span class="money-symbol">💰</span>
+                                    <span class="money-symbol">💰</span>
+                                    <span class="money-symbol">💰</span>
+                                    <span class="money-symbol">💰</span>
+                        </div>
+                        <p class="rating-text">5/5 - 經典選擇</p>
+                    </div>
+                    <div class="column">
+                        <img src="images/porkmeihua.png" alt="Pork Image" class="meat-image"><br>
+                        <h3>黑豬梅花</h3>
+                        <p class="sauce-description">梅花肉（豬肩胛部位）分布著細緻的油花，脂肪比例適中，煮過後肉質仍保持鮮嫩多汁。</p>
+                        <div class="money-rating" id="money1">
+                                    <span class="money-symbol">💰</span>
+                                    <span class="money-symbol">💰</span>
+                                    <span class="money-symbol">💰</span>
+                                    <span class="money-symbol">💰</span>
+                                    <span class="money-symbol">💰</span>
+                        </div>
+                        <p class="rating-text">5/5 - 頂級口感</p>
+                    </div>
+                    
+                </div>
+            `;
+                initializeMoneyRating('money1', 3);  // 霜降牛 3/5 錢
+                initializeMoneyRating('money2', 2);  // 板腱牛 2/5 錢
+                initializeMoneyRating('money3', 4);  // A5和牛 4/5 錢
+                initializeMoneyRating('money4', 2);  // 黑豬梅花 2/5 錢
+        }
 
     
 
@@ -226,6 +255,27 @@
             initializeStarRating('rating1', 4.5);
             initializeStarRating('rating2', 4);
         }
+        // 動態設置金錢評分的函數
+        function initializeMoneyRating(ratingId, score) {
+            const ratingElement = document.getElementById(ratingId);
+            const moneySymbols = ratingElement.querySelectorAll('.money-symbol');
+            
+            moneySymbols.forEach((symbol, index) => {
+                if (index < Math.floor(score)) {
+                    symbol.classList.add('filled');
+                    symbol.classList.remove('empty');
+                } else if (index === Math.floor(score) && score % 1 !== 0) {
+                    // 處理半顆錢幣的情況
+                    symbol.style.background = `linear-gradient(to right, #FFD700 ${(score % 1) * 100}%, #e0e0e0 ${(score % 1) * 100}%)`;
+                    symbol.style.webkitBackgroundClip = 'text';
+                    symbol.style.color = 'transparent';
+                } else {
+                    symbol.classList.add('empty');
+                    symbol.classList.remove('filled');
+                }
+            });
+        }
+
 
         // 動態設置星星評分的函數
         function initializeStarRating(ratingId, score) {
