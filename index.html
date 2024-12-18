@@ -3,23 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>壽喜燒介紹</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <script src="js/main.js"></script>
     <div class="container">
         <div class="left-panel">
             <h2 id="homeLink" onclick="goToHome()" style="cursor: pointer;">SUKIYAKI<br>すき焼き</h2>
             <button onclick="showIntro()">介紹</button>
             <button onclick="showHistory()">歷史</button>
+            <button onclick="showFood()">食材</button>
             <button onclick="showReviews()">醬汁評比</button>
-            <button onclick="showIngredients()">食材介紹</button>
+            
 
         </div>
         <div class="right-panel" id="content">
             <!-- 初始的 Home 內容 -->
-            <h1>歡迎來到壽喜燒的世界</h1>
+            <h4>歡迎來到壽喜燒的世界</h4>
             <p>點擊左側選單以瀏覽更多內容。</p>
             <img src="images/sukiyaki.png" alt="壽喜燒圖片" class="homepage-image">
         </div>
@@ -27,43 +30,52 @@
     
 
     <script>
+         function updateContent(title, content) {
+        const contentElement = document.getElementById('content');
+        applyAnimation();
+        setTimeout(() => {
+            contentElement.innerHTML = `
+                <h1>${title}</h1>
+                ${content}
+            `;
+            scrollToTop();
+        }, 800);
+    }
         function showIntro() {
             document.getElementById('content').innerHTML = `
                 <h1>介紹</h1>
                 <p>壽喜燒是一道日本傳統火鍋料理，具有悠久的歷史和獨特的味道。</p>
                 <div class="text-block">
-                <p>什麼時候吃壽喜燒</p>
+                <h3>什麼時候吃壽喜燒</h3>
                 <ul>
                 <li>過年過節、有好事發生的時候</li>
                 <li>日本人回老家想吃的食物第一名</li>
                 <li>一般被視為一種冬季傳統料理，常在忘年會上食用</li>
                 </ul>
                 </div>
+
                 <div class="text-block">
-                <p>吃法</p>
+                <h3>吃法</h3>
                 <ul>
-                <li>主要食材：牛肉、蔥、菊花、白瀧、大白菜、烤豆腐、醬油、糖、清酒</li>
-                <li>牛肉不要煮太久</li>
-                <ul>
-                    <li>高級牛肉切片</li>
-                </ul>
+                <li><span class="highlight">主要食材</span>：牛肉、蔥、菊花、白瀧、大白菜、烤豆腐、醬油、糖、清酒</li>
+                <li>牛肉不要煮太久，使用高級牛肉切片</li>
                 <li>溫度保持在65～75度</li>
-                <li>沾生雞蛋一起享用</li>
+                <li>沾<span class="highlight">生雞蛋</span>一起享用</li>
                 <ul>
                     <li>味道柔和、防止燙傷、口感滑順</li>
                 </ul>
-                <li>配料和湯汁完全吃完之前，可以加入事先預備好的烏龍麵或米飯下去一起煮</li>
+                <li>配料和湯汁完全吃完之前，可以加入事先預備好的<span class="highlight">烏龍麵</span>或<span class="highlight">米飯</span>下去一起煮</li>
                 </ul>
                 </div>
+
                 <div class="text-block">
-                <p>關西與關東的差別</p>
-                <ul>
-                <li>醬汁</li>
+                <h3>關西與關東的差別</h3>
+                <h5>醬汁</h5>
                 <ul>
                     <li>關東：事先調好的壽喜燒醬汁</li>
                     <li>關西：不使用事先調好的醬汁，觀察食材的狀況來調整味道</li>
                 </ul>
-                <li>料理順序</li>
+                <h5>料理順序</h5>
                 <ul>
                     <li關東煮關西煎</li>
                     <li>關東：一般火鍋，將肉跟所有食材全部放下去
@@ -75,6 +87,7 @@
                         <li>5.蔬菜煮軟後，最後再放春菊</li>
                         </ul>
                     </li>
+                    <br>
                     <li>關西：先放牛肉煎烤，再放入醬油、砂糖和料理酒調味，再放入蔬菜等配料
                         <ul>
                         <li>1.熱鍋後，以牛油塗滿鍋底</li>
@@ -84,9 +97,9 @@
                         <li>5.最後再放春菊</li>
                         </ul>
                     </li>
+                    <br>
                     <li>共同：最後都會沾上蛋汁一起吃</li>
                 </ul>
-
                 </ul>
                 </div>
             `;
@@ -98,31 +111,34 @@
                 <p>壽喜燒起源於日本江戶時代，最早的形式是一種簡單的烹調方式。</p>
                 <div class="text-block">
                 <p>壽喜燒是一道日本傳統火鍋料理，具有悠久的歷史和獨特的味道。</p>
-                <p>使用「鍬」為容器，將肉煮熟後吃（魚、豆腐）</p>
-                <p>sukiyaki的名稱是在沒有鍋子的時代大家使用「鍬」(suki)等農具的金屬部分，烤或煮食物來吃而來</p>
+                <p>使用<span class="highlight">「鍬」</span>為容器，將肉煮熟後吃（魚、豆腐）</p>
+                <p>sukiyaki的名稱是在<span class="highlight">沒有鍋子的時代</span>大家使用「鍬」（suki）等農具的金屬部分，烤或煮食物來吃而來</p>
                 </div>
+
                 <div class="text-block">
-                <p>為什麼壽喜燒出現的時間這麼短(兩百多年前的江戶後期出現)</p>
+                <p>為什麼壽喜燒出現的時間這麼短（兩百多年前的江戶後期出現）</p>
                 <ul>
-                <li>飛鳥時代到明治期間，日本一直都有禁肉令</li>
+                <li>飛鳥時代到明治期間，日本一直都有<span class="highlight">禁肉令</span></li>
                 </ul>
                 </div>
+
                 <div class="text-block">
-                <p>明治時代：天皇開始鼓勵吃肉，壽喜燒逐漸被推廣</p>
-                <p>剛開始民眾還是會抗拒吃肉（在庭院吃壽喜燒），或是在吃牛肉時貼上遮掩的紙張以掩人耳目</p>
-                <p>1875年（明治8年)：報紙雜誌上寫到“牛肉是保持健康、恢復虛弱的最佳方法”</p>
-                <p>1877年（明治10年）：東京有550多家牛肉火鍋店</p>
+                <p><span class="highlight">明治時代：</span>天皇開始鼓勵吃肉，壽喜燒逐漸被推廣</p>
+                <p>剛開始民眾還是會抗拒吃肉（所以只在庭院吃壽喜燒），或是在吃牛肉時貼上遮掩的紙張以掩人耳目</p>
+                <p><span class="highlight">1875年（明治8年)：</span>報紙雜誌上寫到“牛肉是保持健康、恢復虛弱的最佳方法”</p>
+                <p><span class="highlight">1877年（明治10年）：</span>東京有550多家牛肉火鍋店</p>
                 </div>
+
                 <div class="text-block">
-                <p>關西地區：壽喜燒</p>
-                <p>關東地區：牛鍋 ぎゅうなべ
+                <p><span class="highlight">關西地區：</span>壽喜燒 すき焼き</p>
+                <p><span class="highlight">關東地區：</span>牛鍋 ぎゅうなべ
                 <ul>
                 <li>在19世紀中期，幕府的鎖國政在施行約200年後總算解除
-                來到日本的外國人掀起吃牛肉的需求，牛肉廠商開始經營將牛肉煮成日本風味的餐廳「牛鍋屋」。
-                當初的牛鍋為味噌口味，與現在的壽喜燒味道截然不同</li>
+                <br>來到日本的外國人掀起吃牛肉的需求，牛肉廠商開始經營將牛肉煮成日本風味的餐廳「牛鍋屋」。
+                <br>當初的牛鍋為味噌口味，與現在的壽喜燒味道截然不同</li>
                 </ul>
                 </p>
-                <p>名稱統一</p>
+                <p><span class="highlight">名稱統一</span></p>
                 <ul>
                 <li>1923年關東大地震之後東京的牛鍋店遭受重大打擊</li>
                 <li>關西地區的壽喜燒餐廳擴展到關東</li>
@@ -132,17 +148,111 @@
             `;
         }
 
+        function showFood() {
+    document.getElementById('content').innerHTML = `
+        <h1>食材</h1>
+        <div class="reviews">
+            <div class="column">
+                <img src="images/beaf1.jpg" alt="Beef Image 1" class="meat-image"><br>
+                <h3>霜降牛</h3>
+                <p class="sauce-description">選自肩胛處最細嫩部位，油花均勻，口感細緻。</p>
+                <p class="rating-text">4/5 - 口感豐富</p>
+            </div>
+            <div class="column">
+                <img src="images/beaf2.jpg" alt="Beef Image 2" class="meat-image"><br>
+                <h3>板腱牛</h3>
+                <p class="sauce-description">屬於肩胛骨上方的肉，每頭牛大約只有兩公斤的量，特色是中間有一根透明的嫩筋，脂肪少，肉結實。</p>
+                <p class="rating-text">4/5 - 充滿肉香</p>
+            </div>
+        
+            <div class="column">
+                <img src="images/A5.jpg" alt="A5 Image" class="meat-image"><br>
+                <h3>A5和牛</h3>
+                <p class="sauce-description">具豐富的霜降（油花），細緻的肉質和優越的風味。</p>
+                
+                <p class="rating-text">4/5 - 經典選擇</p>
+            </div>
+            <div class="column">
+                <img src="images/pork.jpg" alt="Pork Image" class="meat-image"><br>
+                <h3>黑豬梅花</h3>
+                <p class="sauce-description">梅花肉（豬肩胛部位）分布著細緻的油花，脂肪比例適中，煮過後肉質仍保持鮮嫩多汁。</p>
+                <p class="rating-text">5/5 - 頂級口感</p>
+            </div>
+        </div>
+    `;
+    }
+
+    
+
         function showReviews() {
             document.getElementById('content').innerHTML = `
                 <h1>醬汁評比</h1>
-                <p>各種壽喜燒醬汁的評比結果如下：甜鹹口味最受歡迎。</p>
+                <div class="reviews">
+                    <div class="column">
+                        <img src="images/Sauce1.png" alt="Sauce 1" class="sauce-image">
+                        <h3>山森松阪壽喜燒醬</h3>
+                        <p class="sauce-description">使用濃醇醬油，帶有微甜的口感。融合了傳統關西壽喜燒的獨特風味，適合喜歡濃郁口味的饕客。</p>
+                        <h5>內容物：</h5>
+                            <p class="sauce-description">溜醬油(脫脂大豆.食鹽.小麥).糖類[砂糖(甘蔗.甜菜).葡萄糖(玉米澱粉.馬鈴薯澱粉.甘藷澱粉)].水.食用酒精.食鹽.味醂(米.米麴).調味劑(胺基乙酸.L-麩酸鈉.氯化鉀. 5’-次黃嘌呤核苷磷酸二鈉. 5’-鳥嘌呤核苷磷酸二鈉).昆布抽出物(糊精.昆布).酵母抽出物[酵母抽出物(麵包酵母).食鹽]</p>
+                        <div class="star-rating" id="rating1">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="rating-text">4.5/5 - 高評價醬汁</p>
+                    </div>
+                    <div class="column">
+                        <img src="images/Sauce2.png" alt="Sauce 2" class="sauce-image"><br>
+                        <h3>萬家香壽喜燒露</h3>
+                        <p class="sauce-description">「以天然豆麥醬油為基底，加入純釀造米醋、國產鰹魚熬煮，風味獨具、鹹甜適中」</p>
+                        <p class="sauce-description">1:2：壽喜燒鍋底 ｜ 1:5：火鍋鍋底</p>
+                        <h5>內容物：</h5>
+                            <p class="sauce-description">釀造醬油(水、食鹽、非基因改造黃豆(高蛋白豆片)、小麥)、蔗糖轉化液糖、釀造醋、鰹魚、酒精、酵母抽出物、維生素E(抗氧化劑)</p>
+                        <div class="star-rating" id="rating2">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">☆</span>
+                        </div>
+                        <p class="rating-text">4/5 - 清新推薦</p>
+                    </div>
+                </div>
             `;
+
+            // 初始化星星評分
+            initializeStarRating('rating1', 4.5);
+            initializeStarRating('rating2', 4);
+        }
+
+        // 動態設置星星評分的函數
+        function initializeStarRating(ratingId, score) {
+            const ratingElement = document.getElementById(ratingId);
+            const stars = ratingElement.querySelectorAll('.star');
+            
+            stars.forEach((star, index) => {
+                if (index < Math.floor(score)) {
+                    star.classList.add('filled');
+                    star.classList.remove('empty');
+                } else if (index === Math.floor(score) && score % 1 !== 0) {
+                    // 處理半顆星的情況
+                    star.style.background = `linear-gradient(to right, rgb(255, 166, 42) ${(score % 1) * 100}%, #e0e0e0 ${(score % 1) * 100}%)`;
+                    star.style.webkitBackgroundClip = 'text';
+                    star.style.color = 'transparent';
+                } else {
+                    star.classList.add('empty');
+                    star.classList.remove('filled');
+                }
+            });
         }
 
         function goToHome() {
             document.getElementById('content').innerHTML = `
-            <h1>歡迎來到壽喜燒的世界</h1>
+            <h4>歡迎來到壽喜燒的世界</h4>
             <p>點擊左側選單以瀏覽更多內容。</p>
+            <img src="images/sukiyaki.png" alt="壽喜燒圖片" class="homepage-image">
             `;
         }
         
