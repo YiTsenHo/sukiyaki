@@ -126,7 +126,6 @@ h5 {
     height: 100%; /* 或根據需求設置固定高度 */
     overflow-y: auto; /* 容器內部滾動 */
     scroll-behavior: smooth; /* 平滑滾動 */
-
 }
 
 /* 右側面板內的圖片樣式 */
@@ -180,6 +179,60 @@ h5 {
     height: auto;
     opacity: 1;
     animation: fadeIn 1s ease-out;
+}
+
+.column {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease;
+    margin: 20px 0; /* 上下間距 */
+    border-radius: 10px; /* 圓角 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 陰影效果 */
+    line-height: 1.6; /* 行距 */
+    background-color: rgba(255, 255, 255, 0.2); /* 半透明白色背景 */
+    backdrop-filter: blur(10px); /* 模糊效果 */
+    border: 1px solid rgba(255, 255, 255, 0.125); /* 可选：细边框 */
+}
+
+.reviews {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* 添加兩欄之間的間距 */
+}
+
+.sauce-image {
+    width: 100%;
+    height: auto;
+    max-width: 300px; /* 根據需求調整圖片尺寸 */  
+}
+    
+.sauce-description {
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: 'Noto Sans TC', Arial, sans-serif;
+}
+
+.star-rating {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.star {
+    color: #ffd700; /* 金色 */
+    font-size: 24px;
+    margin: 0 3px;
+    transition: transform 0.2s;
+}
+
+.star.filled {
+    color: #ffd700; /* 實心星星的金色 */
+}
+
+.star.empty {
+    color: #e0e0e0; /* 空心星星的灰色 */
 }
 
 .fade-in {

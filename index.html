@@ -139,7 +139,65 @@
             document.getElementById('content').innerHTML = `
                 <h1>醬汁評比</h1>
                 <p>各種壽喜燒醬汁的評比結果如下：甜鹹口味最受歡迎。</p>
+                <div class="reviews">
+                    <div class="column">
+                        <img src="images/Sauce1.png" alt="Sauce 1" class="sauce-image">
+                        <h3>山森松阪壽喜燒醬</h3>
+                        <p class="sauce-description">使用濃醇醬油，帶有微甜的口感。融合了傳統關西壽喜燒的獨特風味，適合喜歡濃郁口味的饕客。</p>
+                        <h5>內容物：</h5>
+                            <p class="sauce-description">溜醬油(脫脂大豆.食鹽.小麥).糖類[砂糖(甘蔗.甜菜).葡萄糖(玉米澱粉.馬鈴薯澱粉.甘藷澱粉)].水.食用酒精.食鹽.味醂(米.米麴).調味劑(胺基乙酸.L-麩酸鈉.氯化鉀. 5’-次黃嘌呤核苷磷酸二鈉. 5’-鳥嘌呤核苷磷酸二鈉).昆布抽出物(糊精.昆布).酵母抽出物[酵母抽出物(麵包酵母).食鹽]</p>
+                        <div class="star-rating" id="rating1">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="rating-text">4.5/5 - 高評價醬汁</p>
+                    </div>
+                    <div class="column">
+                        <img src="images/Sauce2.png" alt="Sauce 2" class="sauce-image"><br>
+                        <h3>萬家香壽喜燒露</h3>
+                        <p class="sauce-description">「以天然豆麥醬油為基底，加入純釀造米醋、國產鰹魚熬煮，風味獨具、鹹甜適中」</p>
+                        <p class="sauce-description">1:2：壽喜燒鍋底 ｜ 1:5：火鍋鍋底</p>
+                        <h5>內容物：</h5>
+                            <p class="sauce-description">釀造醬油(水、食鹽、非基因改造黃豆(高蛋白豆片)、小麥)、蔗糖轉化液糖、釀造醋、鰹魚、酒精、酵母抽出物、維生素E(抗氧化劑)</p>
+                        <div class="star-rating" id="rating2">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">☆</span>
+                        </div>
+                        <p class="rating-text">4/5 - 清新推薦</p>
+                    </div>
+                </div>
             `;
+
+            // 初始化星星評分
+            initializeStarRating('rating1', 4.5);
+            initializeStarRating('rating2', 4);
+        }
+
+        // 動態設置星星評分的函數
+        function initializeStarRating(ratingId, score) {
+            const ratingElement = document.getElementById(ratingId);
+            const stars = ratingElement.querySelectorAll('.star');
+            
+            stars.forEach((star, index) => {
+                if (index < Math.floor(score)) {
+                    star.classList.add('filled');
+                    star.classList.remove('empty');
+                } else if (index === Math.floor(score) && score % 1 !== 0) {
+                    // 處理半顆星的情況
+                    star.style.background = `linear-gradient(to right, #ffd700 ${(score % 1) * 100}%, #e0e0e0 ${(score % 1) * 100}%)`;
+                    star.style.webkitBackgroundClip = 'text';
+                    star.style.color = 'transparent';
+                } else {
+                    star.classList.add('empty');
+                    star.classList.remove('filled');
+                }
+            });
         }
 
         function goToHome() {
