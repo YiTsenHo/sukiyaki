@@ -8,16 +8,18 @@ body, html {
     height: 100%; /* 確保高度定義 */
     overflow-y: auto; /* 垂直方向允許滾動 */
     scroll-behavior: smooth; /* 滑動行為平滑 */
+    overflow: hidden;
+    height: 100vh;
 }
 
 h4 {
-    font-size: 80px;
+    font-size: clamp(20px, 5vw, 80px); /* 動態控制字體大小，範圍從20px到80px */
     letter-spacing: 10px;
     margin-bottom: 10px;
-    margin-left: 0; /* 調整為 0 使其居中 */
-    width: 100%; /* 設置寬度為頁面寬度 */
-    text-align: left; 
-    box-sizing: border-box; /* 確保 padding 不影響寬度 */
+    margin-left: 0;
+    width: 100%;
+    text-align: left;
+    box-sizing: border-box;
 }
 
 h1 {
@@ -62,14 +64,11 @@ h5 {
 
 .container {
     display: flex;
+    flex-direction: row; /* 左右佈局 */
     height: 100vh;
-}
-
-.container {
-    display: flex;
-    height: 100vh; /* 使用視窗高度 */
     width: 100%;
 }
+
 /* 左側面板 */
 .left-panel {
     flex: 0 0 auto; /* 不grow，不shrink，auto寬度 */
@@ -78,18 +77,19 @@ h5 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
     z-index: 2;
-    padding: 30px;
+    padding: 30px 0;
     color: antiquewhite;
     letter-spacing: 8px;
     min-height: 100vh;
+    overflow: hidden;
 }
 
 .left-panel button {
     width: 70%;
-    height: 70px; /* 稍微減少高度 */
+    height: auto; /* 稍微減少高度 */
     background-color: transparent; /* 透明背景 */
     border: none;
     color: #fff; /* 白色文字 */
@@ -101,6 +101,10 @@ h5 {
     cursor: pointer;
     position: relative; /* 用於底部線條 */
     transition: transform 0.3s, color 0.3s;
+}
+
+.left-panel button + button {
+    margin-top: 0; /* 移除上下 margin，避免按鈕之間被過多分隔 */
 }
 
 .left-panel button::after {
@@ -134,9 +138,11 @@ h5 {
     position: relative;
     line-height: 1.5;
     letter-spacing: 1px;
-    height: 100%; /* 或根據需求設置固定高度 */
-    overflow-y: auto; /* 容器內部滾動 */
-    scroll-behavior: smooth; /* 平滑滾動 */
+    height: 100vh; /* 或根據需求設置固定高度 */
+    /* scroll-behavior: smooth; */
+    padding-bottom: 30px; /* 留足空間 */
+    overflow-y: scroll; /* 確保能滾動 */
+    box-sizing: border-box; /* 確保內距不影響寬高 */
 }
 
 /* 右側面板內的圖片樣式 */
@@ -163,11 +169,18 @@ h5 {
     border: 1px solid rgba(255, 255, 255, 0.125); /* 可选：细边框 */
     font-family: 'Noto Sans TC', Arial, sans-serif;;
     word-spacing: 1px;
+    box-sizing: border-box; /* 確保內邊距和邊框計算在內 */
+    max-width: 100%; /* 避免溢出 */
     animation: fadeIn 0.8s ease-out;
     animation-delay: 0.1s; /* 延迟触发 */
     opacity: 0;
     animation-fill-mode: forwards;
 }
+
+.text-block:last-child {
+    margin-bottom: 20px; /* 最後一塊添加外距，防止貼邊 */
+}
+
 .text-block ul {
     padding-left: 20px; /* 整體縮排 */
     margin: 10px 0; /* 與周圍文字的距離 */
@@ -183,7 +196,6 @@ h5 {
 /* 固定圖片在右側面板底部並置中 */
 .homepage-image {
     position: absolute;
-    bottom: -50px;
     /*left: 50%;*/
     /*transform: translateX(-50%);*/
     max-width: 100%;
