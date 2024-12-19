@@ -3,7 +3,7 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: 'Noto Serif TC', Arial, sans-serif;
-    background: url('/images/brown_background.jpg') no-repeat center center fixed; 
+    background: url('images/brown_background.jpg') no-repeat center center fixed; 
     background-size: cover; 
     height: 100%; /* 確保高度定義 */
     overflow-y: auto; /* 垂直方向允許滾動 */
@@ -14,7 +14,10 @@ h4 {
     font-size: 80px;
     letter-spacing: 10px;
     margin-bottom: 10px;
-    margin-left: -6px;
+    margin-left: 0; /* 調整為 0 使其居中 */
+    width: 100%; /* 設置寬度為頁面寬度 */
+    text-align: left; 
+    box-sizing: border-box; /* 確保 padding 不影響寬度 */
 }
 
 h1 {
